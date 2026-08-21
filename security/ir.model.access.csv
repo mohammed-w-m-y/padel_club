@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_padel_court_receptionist,padel.court.receptionist,model_padel_court,group_padel_receptionist,1,0,0,0
+access_padel_court_manager,padel.court.manager,model_padel_court,group_padel_manager,1,1,1,1
+access_padel_member_receptionist,padel.member.receptionist,model_padel_member,group_padel_receptionist,1,0,0,0
+access_padel_member_manager,padel.member.manager,model_padel_member,group_padel_manager,1,1,1,1
+access_padel_booking_receptionist,padel.booking.receptionist,model_padel_booking,group_padel_receptionist,1,1,1,0
+access_padel_booking_manager,padel.booking.manager,model_padel_booking,group_padel_manager,1,1,1,1
