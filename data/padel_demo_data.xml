@@ -1,0 +1,48 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Courts -->
+        <record id="court_1" model="padel.court">
+            <field name="name">Center Court (Indoor)</field>
+            <field name="court_type">indoor</field>
+            <field name="hourly_rate">200.00</field>
+        </record>
+        <record id="court_2" model="padel.court">
+            <field name="name">Court A (Outdoor)</field>
+            <field name="court_type">outdoor</field>
+            <field name="hourly_rate">150.00</field>
+        </record>
+        <record id="court_3" model="padel.court">
+            <field name="name">Court B (Outdoor)</field>
+            <field name="court_type">outdoor</field>
+            <field name="hourly_rate">150.00</field>
+        </record>
+
+        <!-- Members -->
+        <record id="partner_member_1" model="res.partner">
+            <field name="name">Ahmed Hassan</field>
+            <field name="email">ahmed@example.com</field>
+        </record>
+        <record id="member_1" model="padel.member">
+            <field name="partner_id" ref="partner_member_1"/>
+            <field name="level">intermediate</field>
+        </record>
+
+        <record id="partner_member_2" model="res.partner">
+            <field name="name">Sara Ali</field>
+            <field name="email">sara@example.com</field>
+        </record>
+        <record id="member_2" model="padel.member">
+            <field name="partner_id" ref="partner_member_2"/>
+            <field name="level">advanced</field>
+        </record>
+
+        <!-- Bookings -->
+        <record id="booking_1" model="padel.booking">
+            <field name="court_id" ref="court_1"/>
+            <field name="member_id" ref="member_1"/>
+            <field name="start_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 10:00:00')"/>
+            <field name="end_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 11:30:00')"/>
+            <field name="state">confirmed</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+{
+    'name': 'Padel Club Booking Module',
+    'version': '1.0',
+    'category': 'Services/Padel',
+    'summary': 'Manage Padel courts, members, bookings, invoicing, and reporting',
+    'depends': ['base', 'account', 'portal', 'mail'],
+    'data': [
+        'security/padel_security.xml',
+        'security/ir.model.access.csv',
+        'views/padel_court_views.xml',
+        'views/padel_member_views.xml',
+        'views/padel_booking_views.xml',
+        'wizard/padel_recurring_booking_wizard_views.xml',
+        'views/padel_portal_templates.xml',
+        'views/padel_menus.xml',
+        'data/padel_cron_data.xml',
+        'report/padel_booking_report_template.xml',
+    ],
+    'demo': [
+        'data/padel_demo_data.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'LGPL-3',
+}
