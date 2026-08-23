@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_padel_root" name="Padel Club" sequence="10"/>
+
+    <menuitem id="menu_padel_booking" name="Bookings" parent="menu_padel_root" action="action_padel_booking" sequence="10"/>
+    <menuitem id="menu_padel_court" name="Courts" parent="menu_padel_root" action="action_padel_court" sequence="20"/>
+    <menuitem id="menu_padel_member" name="Members" parent="menu_padel_root" action="action_padel_member" sequence="30"/>
+</odoo>

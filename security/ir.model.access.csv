@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_padel_court_user,padel.court.user,model_padel_court,base.group_user,1,1,1,1
+access_padel_member_user,padel.member.user,model_padel_member,base.group_user,1,1,1,1
+access_padel_booking_user,padel.booking.user,model_padel_booking,base.group_user,1,1,1,1

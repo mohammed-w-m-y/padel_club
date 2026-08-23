@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_padel_court_tree" model="ir.ui.view">
+        <field name="name">padel.court.tree</field>
+        <field name="model">padel.court</field>
+        <field name="arch" type="xml">
+            <tree string="Courts">
+                <field name="name"/>
+                <field name="court_type"/>
+                <field name="hourly_rate"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_padel_court_form" model="ir.ui.view">
+        <field name="name">padel.court.form</field>
+        <field name="model">padel.court</field>
+        <field name="arch" type="xml">
+            <form string="Court">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="court_type"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="hourly_rate"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_padel_court" model="ir.actions.act_window">
+        <field name="name">Courts</field>
+        <field name="res_model">padel.court</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
