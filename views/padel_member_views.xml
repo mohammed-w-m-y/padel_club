@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_padel_member_tree" model="ir.ui.view">
+        <field name="name">padel.member.tree</field>
+        <field name="model">padel.member</field>
+        <field name="arch" type="xml">
+            <tree string="Members">
+                <field name="partner_id"/>
+                <field name="membership_start"/>
+                <field name="level"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_padel_member_form" model="ir.ui.view">
+        <field name="name">padel.member.form</field>
+        <field name="model">padel.member</field>
+        <field name="arch" type="xml">
+            <form string="Member">
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="membership_start"/>
+                        <field name="level"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_padel_member" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">padel.member</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

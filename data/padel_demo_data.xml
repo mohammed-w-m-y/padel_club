@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Demo Partners for Members -->
+        <record id="partner_demo_1" model="res.partner">
+            <field name="name">Ahmed Ali</field>
+            <field name="email">ahmed@example.com</field>
+        </record>
+        <record id="partner_demo_2" model="res.partner">
+            <field name="name">Samy Hassan</field>
+            <field name="email">samy@example.com</field>
+        </record>
+        <record id="partner_demo_3" model="res.partner">
+            <field name="name">Mona Mahmoud</field>
+            <field name="email">mona@example.com</field>
+        </record>
+        <record id="partner_demo_4" model="res.partner">
+            <field name="name">Omar Khaled</field>
+            <field name="email">omar@example.com</field>
+        </record>
+
+        <!-- 3 Courts -->
+        <record id="court_center" model="padel.court">
+            <field name="name">Center Court (Indoor)</field>
+            <field name="court_type">indoor</field>
+            <field name="hourly_rate">150.0</field>
+        </record>
+        <record id="court_panoramic" model="padel.court">
+            <field name="name">Panoramic Court (Outdoor)</field>
+            <field name="court_type">outdoor</field>
+            <field name="hourly_rate">120.0</field>
+        </record>
+        <record id="court_vip" model="padel.court">
+            <field name="name">VIP Court (Indoor)</field>
+            <field name="court_type">indoor</field>
+            <field name="hourly_rate">200.0</field>
+        </record>
+
+        <!-- 4 Members -->
+        <record id="member_1" model="padel.member">
+            <field name="partner_id" ref="partner_demo_1"/>
+            <field name="level">beginner</field>
+        </record>
+        <record id="member_2" model="padel.member">
+            <field name="partner_id" ref="partner_demo_2"/>
+            <field name="level">intermediate</field>
+        </record>
+        <record id="member_3" model="padel.member">
+            <field name="partner_id" ref="partner_demo_3"/>
+            <field name="level">advanced</field>
+        </record>
+        <record id="member_4" model="padel.member">
+            <field name="partner_id" ref="partner_demo_4"/>
+            <field name="level">intermediate</field>
+        </record>
+
+        <!-- 5 Bookings -->
+        <record id="booking_1" model="padel.booking">
+            <field name="court_id" ref="court_center"/>
+            <field name="member_id" ref="member_1"/>
+            <field name="start_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 10:00:00')"/>
+            <field name="end_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 12:00:00')"/>
+            <field name="state">confirmed</field>
+        </record>
+        <record id="booking_2" model="padel.booking">
+            <field name="court_id" ref="court_panoramic"/>
+            <field name="member_id" ref="member_2"/>
+            <field name="start_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 14:00:00')"/>
+            <field name="end_datetime" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 15:30:00')"/>
+            <field name="state">confirmed</field>
+        </record>
+        <record id="booking_3" model="padel.booking">
+            <field name="court_id" ref="court_vip"/>
+            <field name="member_id" ref="member_3"/>
+            <field name="start_datetime" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d 18:00:00')"/>
+            <field name="end_datetime" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d 20:00:00')"/>
+            <field name="state">draft</field>
+        </record>
+        <record id="booking_4" model="padel.booking">
+            <field name="court_id" ref="court_center"/>
+            <field name="member_id" ref="member_4"/>
+            <field name="start_datetime" eval="(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d 16:00:00')"/>
+            <field name="end_datetime" eval="(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d 17:00:00')"/>
+            <field name="state">draft</field>
+        </record>
+        <record id="booking_5" model="padel.booking">
+            <field name="court_id" ref="court_panoramic"/>
+            <field name="member_id" ref="member_1"/>
+            <field name="start_datetime" eval="(datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d 11:00:00')"/>
+            <field name="end_datetime" eval="(datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d 12:00:00')"/>
+            <field name="state">done</field>
+        </record>
+    </data>
+</odoo>
