@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_padel_court_tree" model="ir.ui.view">
-        <field name="name">padel.court.tree</field>
+    <record id="view_padel_court_list" model="ir.ui.view">
+        <field name="name">padel.court.list</field>
         <field name="model">padel.court</field>
         <field name="arch" type="xml">
-            <tree string="Courts">
+            <list string="Courts">
                 <field name="name"/>
                 <field name="court_type"/>
                 <field name="hourly_rate"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -39,6 +39,6 @@
     <record id="action_padel_court" model="ir.actions.act_window">
         <field name="name">Courts</field>
         <field name="res_model">padel.court</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>
