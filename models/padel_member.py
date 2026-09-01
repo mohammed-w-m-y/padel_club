@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class PadelMember(models.Model):
@@ -27,10 +27,11 @@ class PadelMember(models.Model):
         required=True,
     )
 
-    def name_get(self):
-        """Custom display name showing member level with partner name."""
-        result = []
+    @api.depends('partner_id', 'level')
+    def _compute_display_name(self):
+        """Custom display name showing member level with partner name for Odoo 19."""
         for record in self:
-            name = f"{record.partner_id.name} ({record.level.capitalize()})" if record.partner_id else "New Member"
-            result.append((record.id, name))
-        return result
+            if record.partner_id:
+                record.display_name = f"{record.partner_id.name} ({record.level.capitalize()})"
+            else:
+                record.display_name = "New Member"

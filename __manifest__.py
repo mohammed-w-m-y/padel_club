@@ -1,6 +1,6 @@
 {
     'name': 'Padel Club Management',
-    'version': '17.0.1.0.0',
+    'version': '19.0.1.0.0',
     'category': 'Services/Padel',
     'summary': 'Manage padel courts, members, bookings, and invoicing.',
     'description': """
@@ -21,14 +21,13 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/padel_demo_data.xml',
         'views/padel_court_views.xml',
         'views/padel_member_views.xml',
         'views/padel_booking_views.xml',
         'views/menus.xml',
     ],
-    'demo': [
-        'data/padel_demo_data.xml',
-    ],
+    'demo': [],
     'installable': True,
     'application': True,
     'auto_install': False,
