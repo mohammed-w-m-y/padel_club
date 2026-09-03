@@ -160,3 +160,5 @@ class PadelBooking(models.Model):
         """Reset cancelled booking back to draft."""
         for booking in self:
             booking.state = 'draft'
+
+
