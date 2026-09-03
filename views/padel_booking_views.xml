@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Booking List View -->
     <record id="view_padel_booking_list" model="ir.ui.view">
         <field name="name">padel.booking.list</field>
         <field name="model">padel.booking</field>
@@ -11,18 +12,27 @@
                 <field name="end_datetime"/>
                 <field name="duration_hours"/>
                 <field name="price"/>
-                <field name="state"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'draft'"
+                       decoration-primary="state == 'confirmed'"
+                       decoration-success="state == 'done'"
+                       decoration-danger="state == 'cancelled'"/>
             </list>
         </field>
     </record>
 
+    <!-- Booking Form View -->
     <record id="view_padel_booking_form" model="ir.ui.view">
         <field name="name">padel.booking.form</field>
         <field name="model">padel.booking</field>
         <field name="arch" type="xml">
             <form string="Booking">
                 <header>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done,cancelled"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_done" string="Mark Done" type="object" class="btn-success" invisible="state != 'confirmed'"/>
+                    <button name="action_reset_to_draft" string="Reset to Draft" type="object" invisible="state != 'cancelled'"/>
+                    <button name="action_cancel" string="Cancel" type="object" class="btn-secondary" invisible="state in ('done', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
                 </header>
                 <sheet>
                     <group>
@@ -35,7 +45,7 @@
                             <field name="end_datetime"/>
                             <field name="duration_hours"/>
                             <field name="currency_id" invisible="1"/>
-                            <field name="price"/>
+                            <field name="price" widget="monetary"/>
                         </group>
                     </group>
                 </sheet>
@@ -43,6 +53,7 @@
         </field>
     </record>
 
+    <!-- Booking Action -->
     <record id="action_padel_booking" model="ir.actions.act_window">
         <field name="name">Bookings</field>
         <field name="res_model">padel.booking</field>
