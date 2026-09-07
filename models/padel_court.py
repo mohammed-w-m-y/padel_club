@@ -30,4 +30,8 @@ class PadelCourt(models.Model):
         string='Active',
         default=True,
         help='Uncheck to archive the court without deleting it.',
+<<<<<<< HEAD
     )
+=======
+    )
+>>>>>>> main

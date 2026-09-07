@@ -91,4 +91,8 @@
             <field name="state">done</field>
         </record>
     </data>
+<<<<<<< HEAD
 </odoo>
+=======
+</odoo>
+>>>>>>> main

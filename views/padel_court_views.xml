@@ -41,4 +41,8 @@
         <field name="res_model">padel.court</field>
         <field name="view_mode">list,form</field>
     </record>
+<<<<<<< HEAD
 </odoo>
+=======
+</odoo>
+>>>>>>> main
