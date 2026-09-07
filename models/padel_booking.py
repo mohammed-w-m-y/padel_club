@@ -1,17 +1,24 @@
+<<<<<<< HEAD
 from datetime import timedelta
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+=======
+from odoo import api, fields, models
+>>>>>>> main
 
 
 class PadelBooking(models.Model):
     _name = 'padel.booking'
     _description = 'Padel Court Booking'
+<<<<<<< HEAD
     _order = 'start_datetime desc'
 
     def _default_start_datetime(self):
         """Compute default start datetime as the next full hour."""
         now = fields.Datetime.now()
         return now.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
+=======
+>>>>>>> main
 
     court_id = fields.Many2one(
         comodel_name='padel.court',
@@ -26,16 +33,26 @@ class PadelBooking(models.Model):
     start_datetime = fields.Datetime(
         string='Start Datetime',
         required=True,
+<<<<<<< HEAD
         default=_default_start_datetime,
+=======
+>>>>>>> main
     )
     end_datetime = fields.Datetime(
         string='End Datetime',
         required=True,
+<<<<<<< HEAD
         default=lambda self: self._default_start_datetime() + timedelta(hours=1),
     )
     duration_hours = fields.Float(
         string='Duration (Hours)',
         compute='_compute_booking_details',
+=======
+    )
+    duration_hours = fields.Float(
+        string='Duration (Hours)',
+        compute='_compute_duration_hours',
+>>>>>>> main
         store=True,
     )
     currency_id = fields.Many2one(
@@ -46,7 +63,11 @@ class PadelBooking(models.Model):
     )
     price = fields.Monetary(
         string='Total Price',
+<<<<<<< HEAD
         compute='_compute_booking_details',
+=======
+        compute='_compute_price',
+>>>>>>> main
         currency_field='currency_id',
         store=True,
     )
@@ -62,6 +83,7 @@ class PadelBooking(models.Model):
         required=True,
     )
 
+<<<<<<< HEAD
     # ---------------------------------------------------------
     # SQL Constraints
     # ---------------------------------------------------------
@@ -160,3 +182,21 @@ class PadelBooking(models.Model):
         """Reset cancelled booking back to draft."""
         for booking in self:
             booking.state = 'draft'
+=======
+    @api.depends('start_datetime', 'end_datetime')
+    def _compute_duration_hours(self):
+        for booking in self:
+            if booking.start_datetime and booking.end_datetime:
+                delta = booking.end_datetime - booking.start_datetime
+                booking.duration_hours = delta.total_seconds() / 3600.0
+            else:
+                booking.duration_hours = 0.0
+
+    @api.depends('duration_hours', 'court_id.hourly_rate')
+    def _compute_price(self):
+        for booking in self:
+            if booking.court_id and booking.duration_hours:
+                booking.price = booking.duration_hours * booking.court_id.hourly_rate
+            else:
+                booking.price = 0.0
+>>>>>>> main
