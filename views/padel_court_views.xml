@@ -19,6 +19,11 @@
         <field name="arch" type="xml">
             <form string="Court">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-calendar">
+                            <field name="booking_count" widget="statinfo" string="Bookings"/>
+                        </button>
+                    </div>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
                     <group>
                         <group>
@@ -35,11 +40,4 @@
             </form>
         </field>
     </record>
-
-    <record id="action_padel_court" model="ir.actions.act_window">
-        <field name="name">Courts</field>
-        <field name="res_model">padel.court</field>
-        <field name="view_mode">list,form</field>
-    </record>
 </odoo>
-
