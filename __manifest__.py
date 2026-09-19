@@ -25,11 +25,10 @@
         'views/padel_court_views.xml',
         'views/padel_member_views.xml',
         'views/padel_booking_views.xml',
-        'views/menus.xml',
+        'views/padel_booking_menus.xml',
     ],
     'demo': [],
     'installable': True,
     'application': True,
     'auto_install': False,
 }
-

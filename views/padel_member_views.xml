@@ -18,6 +18,11 @@
         <field name="arch" type="xml">
             <form string="Member">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-calendar">
+                            <field name="booking_count" widget="statinfo" string="Bookings"/>
+                        </button>
+                    </div>
                     <group>
                         <field name="partner_id"/>
                         <field name="membership_start"/>
@@ -27,12 +32,4 @@
             </form>
         </field>
     </record>
-
-    <record id="action_padel_member" model="ir.actions.act_window">
-        <field name="name">Members</field>
-        <field name="res_model">padel.member</field>
-        <field name="view_mode">list,form</field>
-    </record>
 </odoo>
-
-
