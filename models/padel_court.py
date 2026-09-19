@@ -31,3 +31,4 @@ class PadelCourt(models.Model):
         default=True,
         help='Uncheck to archive the court without deleting it.',
     )
+

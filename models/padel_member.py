@@ -35,3 +35,4 @@ class PadelMember(models.Model):
                 record.display_name = f"{record.partner_id.name} ({record.level.capitalize()})"
             else:
                 record.display_name = "New Member"
+
