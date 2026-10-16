@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions for Padel Module -->
+    <record id="action_padel_booking" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">padel.booking</field>
+        <field name="view_mode">list,kanban,calendar,form</field>
+        <field name="search_view_id" ref="view_padel_booking_search"/>
+    </record>
+
+    <record id="action_padel_court" model="ir.actions.act_window">
+        <field name="name">Courts</field>
+        <field name="res_model">padel.court</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_padel_member" model="ir.actions.act_window">
+        <field name="name">Members</field>
+        <field name="res_model">padel.member</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menus Structure -->
+    <menuitem id="menu_padel_root" name="Padel Club" sequence="10"/>
+
+    <menuitem id="menu_padel_booking" name="Bookings" parent="menu_padel_root" action="action_padel_booking" sequence="10"/>
+    <menuitem id="menu_padel_court" name="Courts" parent="menu_padel_root" action="action_padel_court" sequence="20"/>
+    <menuitem id="menu_padel_member" name="Members" parent="menu_padel_root" action="action_padel_member" sequence="30"/>
+</odoo>

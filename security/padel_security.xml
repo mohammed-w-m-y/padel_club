@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="1">
+
+        <!-- Receptionist Group -->
+        <record id="group_padel_receptionist" model="res.groups">
+            <field name="name">Padel Club / Receptionist</field>
+        </record>
+
+        <!-- Club Manager Group -->
+        <record id="group_padel_manager" model="res.groups">
+            <field name="name">Padel Club / Club Manager</field>
+            <field name="implied_ids"
+                   eval="[(4, ref('group_padel_receptionist'))]"/>
+        </record>
+
+        <!-- Receptionists can access today's and future bookings -->
+        <record id="padel_booking_rule_receptionist" model="ir.rule">
+            <field name="name">Receptionist Bookings: Today and Future</field>
+            <field name="model_id" ref="model_padel_booking"/>
+            <field name="domain_force">[('start_datetime', '&gt;=', today.strftime('%Y-%m-%d 00:00:00'))]</field>
+            <field name="groups" eval="[(4, ref('group_padel_receptionist'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+    </data>
+</odoo>
