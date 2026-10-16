@@ -7,7 +7,13 @@
             <list string="Courts">
                 <field name="name"/>
                 <field name="court_type"/>
-                <field name="hourly_rate"/>
+
+                <field name="hourly_rate"
+                       groups="padel_club.group_padel_manager"/>
+                <field name="hourly_rate"
+                       groups="base.group_user,!padel_club.group_padel_manager"
+                       readonly="1"/>
+
                 <field name="active"/>
             </list>
         </field>
@@ -20,19 +26,36 @@
             <form string="Court">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-calendar">
-                            <field name="booking_count" widget="statinfo" string="Bookings"/>
+                        <button name="action_view_bookings"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-calendar">
+                            <field name="booking_count"
+                                   widget="statinfo"
+                                   string="Bookings"/>
                         </button>
                     </div>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+
+                    <widget name="web_ribbon"
+                            title="Archived"
+                            bg_color="bg-danger"
+                            invisible="active"/>
+
                     <group>
                         <group>
                             <field name="name"/>
                             <field name="court_type"/>
                         </group>
+
                         <group>
                             <field name="currency_id" invisible="1"/>
-                            <field name="hourly_rate"/>
+
+                            <field name="hourly_rate"
+                                   groups="padel_club.group_padel_manager"/>
+                            <field name="hourly_rate"
+                                   groups="base.group_user,!padel_club.group_padel_manager"
+                                   readonly="1"/>
+
                             <field name="active"/>
                         </group>
                     </group>

@@ -20,6 +20,7 @@
         'mail',
     ],
     'data': [
+        'security/padel_security.xml',
         'security/ir.model.access.csv',
         'data/padel_demo_data.xml',
         'views/padel_court_views.xml',
